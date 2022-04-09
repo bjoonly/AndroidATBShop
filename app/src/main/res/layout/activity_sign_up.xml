@@ -6,196 +6,281 @@
     android:layout_height="match_parent"
     tools:context=".account.SignUpActivity">
 
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
-
-    //First name
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldFirstName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="First name"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSignUp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--    //Second name-->
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textFieldSecondName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:hint="Second name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldFirstName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtSecondName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    //Email
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textFieldEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:hint="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldSecondName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtEmail"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    //Phone
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textFieldPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:hint="Phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldEmail">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPhone"
-            android:inputType="phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    //Password
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textFieldPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:hint="Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:endIconMode="password_toggle"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldPhone">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPassword"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    //Confirm Password
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textFieldConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="7dp"
-        android:hint="Confirm Password"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:endIconMode="password_toggle"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldPassword">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtConfirmPassword"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/IVPreviewImage"
-        android:layout_width="200dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldConfirmPassword"
-        app:layout_constraintVertical_bias="0.31" />
+        android:columnCount="4"
+        android:rowCount="8"
+        android:layout_margin="10dp"
+        android:useDefaultMargins="true">
 
-    <Button
-        android:id="@+id/chooseImageBtn"
-        android:layout_width="140dp"
-        android:layout_height="63dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="120dp"
-        android:onClick="onSignUpBtnClick"
-        android:text="Choose image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/IVPreviewImage" />
+        <RelativeLayout
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
 
-    <Button
-        android:id="@+id/signUpBtn"
-        android:layout_width="116dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="472dp"
-        android:onClick="onSignUpBtnClick"
-        android:text="Sign up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSignUp"
-        app:layout_constraintVertical_bias="0.758" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/textViewSignUp"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/sign_up"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+        //First name
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textEditFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        //Second name
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputSecondName"
+                    android:hint="@string/second_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textEditSecondName" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+        //Email
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputEmail"
+                    android:hint="@string/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textEditEmail"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+        //Phone
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.3"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputPhone"
+                    android:hint="@string/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textEditPhone"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+        <!--Password-->
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputPassword"
+                    android:hint="@string/password"
+                    app:endIconMode="password_toggle"
+                    app:errorIconDrawable="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textEditPassword"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!--Confirm Password-->
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/textInputConfirmPassword"
+                    android:hint="@string/confirm_password"
+                    app:endIconMode="password_toggle"
+                    app:errorIconDrawable="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textEditConfirmPassword"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.7"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/previewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.5"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/chooseImageBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="onSelectImage"
+                    android:text="@string/choose_image" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_columnSpan="4"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="0.2"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:onClick="onSignUpBtnClick"
+                    android:text="@string/sign_up" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

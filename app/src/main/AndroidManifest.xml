@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App2803">
         <activity
+            android:name=".user.UserActivity"
+            android:exported="true" />
+        <activity
             android:name=".account.SignUpActivity"
             android:exported="true" />
         <activity

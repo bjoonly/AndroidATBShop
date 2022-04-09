@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">App28.03</string>
+    <string name="app_name">ATB Shop</string>
+    <string name="first_name">First name</string>
+    <string name="second_name">Second name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="choose_image">Choose image</string>
+    <string name="sign_up">Sign up</string>
 </resources>

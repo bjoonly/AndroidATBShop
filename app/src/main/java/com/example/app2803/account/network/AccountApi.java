@@ -8,6 +8,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface AccountApi {
-    @POST("/api/Account/signUp")
+    @POST("api/Account/register")
     Call<AccountResponseDTO> signUp(@Body SignUpDTO dto);
 }

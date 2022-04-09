@@ -21,6 +21,7 @@ import com.example.app2803.network.ImageRequester;
 import com.example.app2803.network.image.ImageService;
 import com.example.app2803.network.image.dto.ImageRequestDto;
 import com.example.app2803.network.image.dto.ImageResponse;
+import com.example.app2803.user.UserActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.m_sign_up:
                 intent = new Intent(this, SignUpActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.m_users:
+                intent = new Intent(this, UserActivity.class);
                 startActivity(intent);
                 return true;
             default:

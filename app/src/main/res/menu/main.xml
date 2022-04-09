@@ -4,4 +4,7 @@
     <item android:id="@+id/m_sign_up"
         android:title="Sign up"
         app:showAsAction="never"/>
+    <item android:id="@+id/m_users"
+        android:title="Users"
+        app:showAsAction="never"/>
 </menu>
