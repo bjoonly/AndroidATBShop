@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/m_sign_up"
-        android:title="Sign up"
+        android:title="@string/sign_up"
+        app:showAsAction="never"/>
+    <item android:id="@+id/m_login"
+        android:title="@string/login"
         app:showAsAction="never"/>
     <item android:id="@+id/m_users"
-        android:title="Users"
+        android:title="@string/users"
+        app:showAsAction="never"/>
+    <item android:id="@+id/m_logout"
+        android:title="@string/logout"
         app:showAsAction="never"/>
 </menu>

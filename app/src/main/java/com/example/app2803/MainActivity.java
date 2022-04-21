@@ -6,22 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.toolbox.NetworkImageView;
-import com.example.app2803.account.SignUpActivity;
 import com.example.app2803.constants.Urls;
 import com.example.app2803.network.ImageRequester;
 import com.example.app2803.network.image.ImageService;
 import com.example.app2803.network.image.dto.ImageRequestDto;
 import com.example.app2803.network.image.dto.ImageResponse;
-import com.example.app2803.user.UserActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -30,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private ImageRequester imageRequester;
     private NetworkImageView myImage;
     int SELECT_PICTURE = 200;
@@ -46,30 +39,6 @@ public class MainActivity extends AppCompatActivity {
         String urlImg = Urls.BASE + "/images/1.jpg";
         imageRequester.setImageFromUrl(myImage, urlImg);
         IVPreviewImage = findViewById(R.id.IVPreviewImage);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.m_sign_up:
-                intent = new Intent(this, SignUpActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.m_users:
-                intent = new Intent(this, UserActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public void onSelectImage(View view) {

@@ -3,20 +3,22 @@ package com.example.app2803.user;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.app2803.R;
+import com.example.app2803.application.HomeApplication;
 import com.example.app2803.constants.Urls;
 import com.example.app2803.network.ImageRequester;
 import com.example.app2803.user.dto.UserDTO;
 
 import java.util.List;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
-    List<UserDTO> mItems;
+public class CardAdapter extends RecyclerView.Adapter<ViewHolder> {
+    private List<UserDTO> mItems;
     private ImageRequester imageRequester;
     private NetworkImageView myImage;
 
@@ -32,17 +34,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
-
+    
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        UserDTO user = mItems.get(i);
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        imageRequester = ImageRequester.getInstance();
-        String urlImg = Urls.BASE + user.getPhoto();
+        if (mItems != null && position < mItems.size()) {
+            UserDTO user = mItems.get(position);
+            viewHolder.userEmail.setText(user.getEmail());
+            String url = Urls.BASE + user.getPhoto();
+            Glide.with(HomeApplication.getAppContext())
+                    .load(url)
+                    .apply(new RequestOptions().override(600, 300))
+                    .into(viewHolder.userPhoto);
+        }
 
-        imageRequester.setImageFromUrl(viewHolder.userPhoto, urlImg);
-
-        viewHolder.userEmail.setText(user.getEmail());
     }
 
     @Override
@@ -50,15 +55,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         return mItems.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
 
-        public NetworkImageView userPhoto;
-        public TextView userEmail;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            userPhoto = (NetworkImageView) itemView.findViewById(R.id.user_photo);
-            userEmail = (TextView) itemView.findViewById(R.id.user_email);
-        }
-    }
 }

@@ -11,12 +11,14 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.app2803.BaseActivity;
+import com.example.app2803.MainActivity;
 import com.example.app2803.R;
 import com.example.app2803.account.dto.AccountResponseDTO;
 import com.example.app2803.account.dto.SignUpDTO;
 import com.example.app2803.account.network.AccountService;
+import com.example.app2803.application.HomeApplication;
+import com.example.app2803.security.JwtSecurityService;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -28,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends BaseActivity {
     private TextInputLayout textInputFirstName;
     private TextInputLayout textInputSecondName;
     private TextInputLayout textInputEmail;
@@ -183,8 +185,11 @@ public class SignUpActivity extends AppCompatActivity {
                     .enqueue(new Callback<AccountResponseDTO>() {
                         @Override
                         public void onResponse(Call<AccountResponseDTO> call, Response<AccountResponseDTO> response) {
-                            System.out.println(response.body());
                             AccountResponseDTO data = response.body();
+                            JwtSecurityService jwtService = (JwtSecurityService) HomeApplication.getInstance();
+                            jwtService.saveJwtToken(data.getToken());
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
 
                         @Override

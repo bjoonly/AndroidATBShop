@@ -17,7 +17,7 @@
             android:id="@+id/user_photo"
             android:layout_width="match_parent"
             android:layout_height="108dp"
-            android:background="?attr/colorPrimaryDark"
+
             android:scaleType="centerCrop" />
 
         <LinearLayout

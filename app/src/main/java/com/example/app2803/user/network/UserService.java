@@ -1,7 +1,7 @@
-package com.example.app2803.network;
+package com.example.app2803.user.network;
 
 import com.example.app2803.constants.Urls;
-import com.example.app2803.user.network.UserApi;
+import com.example.app2803.interceptor.JWTInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +18,7 @@ public class UserService {
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
+                .addInterceptor((new JWTInterceptor()))
                 .build();
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)
