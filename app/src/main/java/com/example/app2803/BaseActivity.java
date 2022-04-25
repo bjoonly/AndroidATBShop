@@ -10,18 +10,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app2803.account.LoginActivity;
 import com.example.app2803.account.SignUpActivity;
 import com.example.app2803.application.HomeApplication;
+import com.example.app2803.connection.ConnectionInternetError;
+import com.example.app2803.connection.ConnectionInternetErrorActivity;
 import com.example.app2803.security.JwtSecurityService;
-import com.example.app2803.user.UserActivity;
+import com.example.app2803.user.UsersActivity;
 
-public class BaseActivity extends AppCompatActivity {
-    private static boolean isAuth;
+public class BaseActivity extends AppCompatActivity implements ConnectionInternetError {
+    JwtSecurityService jwtService;
 
-    public static boolean getIsAuth() {
-        return isAuth;
-    }
-
-    public static void setIsAuth(boolean isAuth) {
-        BaseActivity.isAuth = isAuth;
+    public BaseActivity() {
+        HomeApplication homeApp = (HomeApplication) HomeApplication.getAppContext();
+        homeApp.setCurrentActivity(this);
+        jwtService = HomeApplication.getInstance();
     }
 
     @Override
@@ -35,7 +35,6 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        JwtSecurityService jwtService = HomeApplication.getInstance();
         String token = jwtService.getToken();
 
         MenuItem loginItem = menu.findItem(R.id.m_login);
@@ -70,7 +69,7 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.m_users:
-                intent = new Intent(this, UserActivity.class);
+                intent = new Intent(this, UsersActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.m_logout:
@@ -85,5 +84,11 @@ public class BaseActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void navigateErrorPage() {
+        Intent intent = new Intent(this, ConnectionInternetErrorActivity.class);
+        startActivity(intent);
     }
 }

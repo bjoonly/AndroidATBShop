@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app2803">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App2803">
         <activity
+            android:name=".connection.ConnectionInternetErrorActivity"
+            android:exported="true" />
+        <activity
             android:name=".account.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".user.UserActivity"
+            android:name=".user.UsersActivity"
             android:exported="true" />
         <activity
             android:name=".account.SignUpActivity"

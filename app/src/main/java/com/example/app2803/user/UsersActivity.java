@@ -22,21 +22,30 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserActivity extends BaseActivity {
+public class UsersActivity extends BaseActivity {
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     JwtSecurityService jwtService;
 
     @Override
+    public void onResume() {
+        super.onResume();
+        request();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    private void request() {
         jwtService = (JwtSecurityService) HomeApplication.getInstance();
         String token = jwtService.getToken();
         if (token.isEmpty()) {
-            Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+            Intent intent = new Intent(UsersActivity.this, LoginActivity.class);
             startActivity(intent);
         } else {
-            setContentView(R.layout.activity_user);
+            setContentView(R.layout.activity_users);
             mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.setHasFixedSize(true);
@@ -61,8 +70,6 @@ public class UserActivity extends BaseActivity {
                             int a = 12;
                         }
                     });
-
-
         }
     }
 }

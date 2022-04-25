@@ -1,5 +1,6 @@
 package com.example.app2803.application;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +12,7 @@ import com.example.app2803.security.JwtSecurityService;
 public class HomeApplication extends Application implements JwtSecurityService {
     private static HomeApplication instance;
     private static Context appContext;
+    private Activity currentActivity = null;
 
     public static HomeApplication getInstance() {
         return instance;
@@ -22,6 +24,14 @@ public class HomeApplication extends Application implements JwtSecurityService {
 
     public void setAppContext(Context appContext) {
         this.appContext = appContext;
+    }
+
+    public Activity getCurrentActivity() {
+        return currentActivity;
+    }
+
+    public void setCurrentActivity(Activity currentActivity) {
+        this.currentActivity = currentActivity;
     }
 
     @Override
