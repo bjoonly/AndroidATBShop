@@ -13,4 +13,5 @@
     <string name="logout">Logout</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="try_connect_again">Try connect again</string>
+    <string name="update">Update</string>
 </resources>

@@ -3,8 +3,7 @@ package com.example.app2803.user.dto;
 import lombok.Data;
 
 @Data
-public class UserDTO {
-    private int id;
+public class EditUserDTO {
     private String firstName;
     private String secondName;
     private String email;

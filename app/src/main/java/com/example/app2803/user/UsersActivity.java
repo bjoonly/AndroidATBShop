@@ -14,6 +14,7 @@ import com.example.app2803.application.HomeApplication;
 import com.example.app2803.security.JwtSecurityService;
 import com.example.app2803.user.dto.UserDTO;
 import com.example.app2803.user.network.UserService;
+import com.example.app2803.user.usercard.CardAdapter;
 import com.example.app2803.utils.CommonUtils;
 
 import java.util.List;
@@ -59,8 +60,11 @@ public class UsersActivity extends BaseActivity {
                         @Override
                         public void onResponse(Call<List<UserDTO>> call, Response<List<UserDTO>> response) {
                             RecyclerView.Adapter mAdapter;
-                            mAdapter = new CardAdapter(response.body());
+                            mAdapter = new CardAdapter(response.body(),
+                                    UsersActivity.this::onClickByItem,
+                                    UsersActivity.this::onClickEditItem);
                             mRecyclerView.setAdapter(mAdapter);
+
                             CommonUtils.hideLoading();
                         }
 
@@ -71,5 +75,21 @@ public class UsersActivity extends BaseActivity {
                         }
                     });
         }
+    }
+
+    private void onClickByItem(UserDTO user) {
+        Intent intent = new Intent(UsersActivity.this, UserActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("id", user.getId());
+        intent.putExtras(b);
+        startActivity(intent);
+    }
+
+    private void onClickEditItem(UserDTO user) {
+        Intent intent = new Intent(UsersActivity.this, EditUserActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("id", user.getId());
+        intent.putExtras(b);
+        startActivity(intent);
     }
 }

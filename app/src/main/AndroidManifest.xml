@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App2803">
         <activity
+            android:name=".user.EditUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".user.UserActivity"
+            android:exported="true" />
+        <activity
             android:name=".connection.ConnectionInternetErrorActivity"
             android:exported="true" />
         <activity

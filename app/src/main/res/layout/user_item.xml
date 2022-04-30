@@ -33,6 +33,15 @@
                 android:text="user_email"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center|bottom" />
         </LinearLayout>
+
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
