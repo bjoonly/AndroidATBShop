@@ -85,12 +85,15 @@ public class LoginActivity extends BaseActivity {
                     .enqueue(new Callback<AccountResponseDTO>() {
                         @Override
                         public void onResponse(Call<AccountResponseDTO> call, Response<AccountResponseDTO> response) {
-                            AccountResponseDTO data = response.body();
-                            
-                            JwtSecurityService jwtService = (JwtSecurityService) HomeApplication.getInstance();
-                            jwtService.saveJwtToken(data.getToken());
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
+                            if (response.isSuccessful()) {
+                                AccountResponseDTO data = response.body();
+
+                                JwtSecurityService jwtService = (JwtSecurityService) HomeApplication.getInstance();
+                                jwtService.saveJwtToken(data.getToken());
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
 
                         @Override

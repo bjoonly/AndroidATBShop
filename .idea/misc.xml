@@ -4,8 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/App2803/app/src/main/res/layout/activity_main.xml" value="0.4173913181932306" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11944444444444445" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable/apply_image_icon.xml" value="0.28958333333333336" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable/change_image_icon.xml" value="0.21041666666666667" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11944444444444445" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable/rotate_left_icon.xml" value="0.21041666666666667" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/drawable/rotate_right_icon.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_change_image.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_choose_image.xml" value="0.34762348555452005" />
         <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_connection_internet_error.xml" value="0.15104166666666666" />
         <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_edit_user.xml" value="0.2734375" />
+        <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_image.xml" value="0.2754782700075322" />
         <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_login.xml" value="0.2754782700075322" />
         <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/Projects/App2803/app/src/main/res/layout/activity_sign_up.xml" value="0.2754782700075322" />

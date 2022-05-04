@@ -2,7 +2,6 @@ package com.example.app2803.user;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -23,6 +22,8 @@ import com.example.app2803.user.network.UserService;
 import com.example.app2803.utils.CommonUtils;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -198,8 +199,10 @@ public class EditUserActivity extends BaseActivity {
                     .enqueue(new Callback<UserDTO>() {
                         @Override
                         public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
-                            Intent intent = new Intent(EditUserActivity.this, UsersActivity.class);
-                            startActivity(intent);
+                            if (response.isSuccessful()) {
+                                Intent intent = new Intent(EditUserActivity.this, UsersActivity.class);
+                                startActivity(intent);
+                            }
                         }
 
                         @Override
@@ -287,41 +290,35 @@ public class EditUserActivity extends BaseActivity {
     }
 
     public void onEditUserOnSelectPhotoBtnClick(View view) {
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setActivityTitle("Crop")
+                .setActivityMenuIconColor(R.color.black)
+                .setCropMenuCropButtonIcon(R.drawable.apply_image_icon)
+                .setRequestedSize(400, 400)
+                .start(this);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                userEditPhoto.setImageURI(result.getUri());
 
-                Uri uri = data.getData();
-                if (null != uri) {
-
-                    userEditPhoto.setImageURI(uri);
-
-                    Bitmap bitmap = null;
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-
-                    byte[] bytes = stream.toByteArray();
-
-                    String sImage = Base64.encodeToString(bytes, Base64.DEFAULT);
-
-                    editUserDTO.setPhoto(sImage);
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byte[] bytes = stream.toByteArray();
+                String sImage = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                editUserDTO.setPhoto(sImage);
             }
         }
     }
